@@ -6,6 +6,7 @@ import { EXPORT_START, EXPORT_FINISH } from "../export-actions";
 import { enqueueSnackbar, closeSnackbar } from "../notify-actions";
 
 const AUTOHIDE_PERIOD = 2000;
+const getNewKey = () => new Date().getTime() + Math.random();
 
 function* notify(action) {
     yield console.log("notify");
@@ -14,6 +15,7 @@ function* notify(action) {
             message: "Export started.",
             options: {
                 variant: "success",
+                key: getNewKey(),
                 autoHideDuration: AUTOHIDE_PERIOD,
                 persist: true
             }
