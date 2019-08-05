@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { render } from 'react-dom';
-import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from "redux-saga";
 import { SnackbarProvider } from 'notistack';
@@ -14,7 +14,7 @@ import App from './App';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(combineReducers({ app: notifyReducers, export: exportReducers }), applyMiddleware(sagaMiddleware));
+const store = createStore(combineReducers({ app: notifyReducers, export: exportReducers }), compose(applyMiddleware(sagaMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 sagaMiddleware.run(notifySaga);
 
