@@ -5,6 +5,9 @@ export const REMOVE_SNACKBAR = 'REMOVE_SNACKBAR';
 export const enqueueSnackbar = notification => {
     const key = notification.options && notification.options.key;
 
+    // Note for redux-saga to work, the key must be generated in the saga
+    // and then passed into this action creator.  If you don't pass one in
+    // and let the action create generated, then it will fail.
     return {
         type: ENQUEUE_SNACKBAR,
         notification: {
