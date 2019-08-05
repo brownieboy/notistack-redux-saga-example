@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Notifier from './Notifier';
 import { enqueueSnackbar, closeSnackbar } from './redux/notify-actions';
-import { exportStart } from './redux/export-actions';
+import { exportStart, exportFinish } from './redux/export-actions';
 
 const App = (props) => {
     const handleClick = () => {
@@ -30,8 +30,12 @@ const App = (props) => {
         props.closeSnackbar();
     };
 
-    const handleStartExport = () => {
+    const handleExportStart = () => {
         props.exportStart();
+    };
+
+    const handleExportFinish = () => {
+        props.exportFinish();
     };
 
     return (
@@ -41,7 +45,8 @@ const App = (props) => {
 
             <Button variant="contained" onClick={handleClick}>Display snackbar</Button>
             <Button variant="contained" onClick={handleDimissAll}>Dismiss all snackbars</Button>
-            <Button variant="contained" onClick={handleStartExport}>Start export</Button>
+            <Button variant="contained" onClick={handleExportStart}>Start export</Button>
+            <Button variant="contained" onClick={handleExportFinish}>Finish export</Button>
         </Fragment>
     );
 };
@@ -49,7 +54,8 @@ const App = (props) => {
 const mapDispatchToProps = dispatch => bindActionCreators({
     enqueueSnackbar,
     closeSnackbar,
-    exportStart
+    exportStart,
+    exportFinish
 }, dispatch);
 
 export default connect(null, mapDispatchToProps)(App);

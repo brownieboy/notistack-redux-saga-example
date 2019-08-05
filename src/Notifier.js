@@ -70,3 +70,4 @@ export default withSnackbar(connect(
     mapStateToProps,
     mapDispatchToProps,
 )(Notifier));
+

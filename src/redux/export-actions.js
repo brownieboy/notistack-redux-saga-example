@@ -5,3 +5,7 @@ export const EXPORT_ERROR = 'EXPORT_ERROR';
 export const exportStart = () => ({
     type: EXPORT_START
 });
+
+export const exportFinish = () => ({
+    type: EXPORT_FINISH
+});
