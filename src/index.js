@@ -3,13 +3,20 @@
  */
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from "redux-saga";
 import { SnackbarProvider } from 'notistack';
-import reducers from './redux/reducers';
+import notifyReducers from './redux/notify-reducers';
+import exportReducers from "./redux/export-reducers";
+import notifySaga from "./redux/sagas/notify-sagas";
 import App from './App';
 
-const store = createStore(combineReducers({ app: reducers }));
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(combineReducers({ app: notifyReducers, export: exportReducers }), applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(notifySaga);
 
 render(
     <Provider store={store}>

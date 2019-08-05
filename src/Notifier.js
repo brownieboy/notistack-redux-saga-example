@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withSnackbar } from 'notistack';
-import { removeSnackbar } from './redux/actions';
+import { removeSnackbar } from './redux/notify-actions';
 
 class Notifier extends Component {
     displayed = [];

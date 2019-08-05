@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Notifier from './Notifier';
-import { enqueueSnackbar, closeSnackbar } from './redux/actions';
+import { enqueueSnackbar, closeSnackbar } from './redux/notify-actions';
 
 const App = (props) => {
     const handleClick = () => {
