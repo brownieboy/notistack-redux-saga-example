@@ -5,9 +5,9 @@ export const REMOVE_SNACKBAR = "REMOVE_SNACKBAR";
 export const enqueueSnackbar = notification => {
   const key = notification.options && notification.options.key;
 
-// Note for redux-saga to work, the key must be generated in the saga
-// and then passed into the action creator.  If you let the action creator
-// generate one, then it will fail trying to close snack programatically.
+  // Note for redux-saga to work, the key must be generated in the saga
+  // and then passed into the action creator.  If you let the action creator
+  // generate one, then it will fail trying to close snack programatically.
   return {
     type: ENQUEUE_SNACKBAR,
     notification: {
@@ -18,7 +18,6 @@ export const enqueueSnackbar = notification => {
 };
 
 export const closeSnackbar = key => {
-  console.log("closeSnackbar action, key: ", key);
   return {
     type: CLOSE_SNACKBAR,
     dismissAll: !key, // dismiss all if no key has been defined

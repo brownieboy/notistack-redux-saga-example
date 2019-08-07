@@ -1,0 +1,39 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["plugin:react/recommended"],
+  "plugins": ["react"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "func-style": [
+      2,
+      "declaration",
+      {
+        "allowArrowFunctions": true
+      }
+    ],
+    "class-methods-use-this": "off",
+    "generator-star-spacing": "off",
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    "require-jsdoc": "off",
+    "lines-around-comment": "off",
+    "newline-after-var": "off",
+    "no-confusing-arrow": [
+      "error",
+      {
+        "allowParens": true
+      }
+    ],
+    "no-console": "warn",
+    "no-invalid-this": "off",
+    "no-undef": "error",
+    "no-unused-vars": "warn",
+    "prefer-template": "warn",
+    "react/jsx-uses-vars": 1,
+    "react/react-in-jsx-scope": 1,
+    "react/display-name": "off",
+    "react/prop-types": "warn"
+  }
+}

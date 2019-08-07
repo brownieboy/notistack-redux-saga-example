@@ -25,10 +25,10 @@ export default (state = defaultState, action) => {
     case CLOSE_SNACKBAR:
       return {
         ...state,
-        notifications: state.notifications.map(notification =>
-          action.dismissAll || notification.key === action.key
+        notifications: state.notifications.map(notification => {
+          return action.dismissAll || notification.key === action.key
             ? { ...notification, dismissed: true }
-            : { ...notification }
+            : { ...notification }}
         )
       };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { fork, put, take, call, race } from "redux-saga/effects";
+import { fork, put, take } from "redux-saga/effects";
 
 import { EXPORT_START, EXPORT_FINISH } from "../export-actions";
 import { enqueueSnackbar, closeSnackbar } from "../notify-actions";
@@ -13,7 +13,6 @@ const AUTOHIDE_PERIOD = 2000;
 const getNewKey = () => new Date().getTime() + Math.random();
 
 function* notify(action) {
-  yield console.log("notify");
   if (action.type === EXPORT_START) {
     const newKey = getNewKey();
     yield put(
