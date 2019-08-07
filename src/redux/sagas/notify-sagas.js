@@ -27,6 +27,14 @@ const getNewKey = () => new Date().getTime() + Math.random();
 //     }
 // }
 
+// https://stackoverflow.com/questions/43613403/using-put-in-callback
+function closeSnackbarPromise() {
+    return new Promise((resolve, reject) => {
+        console.log("closeSnackbarPromise resolved")
+        put(closeSnackbar());
+    });
+}
+
 
 function* notify(action) {
     yield console.log("notify");
@@ -46,15 +54,15 @@ function* notify(action) {
                         // not working as a simple put, because Notistack will have to run it,
                         // and Notistack doesn't know what put is!!
                         // console.log("button onClick promise bound");
-                        put(closeSnackbar(key));
+                        // put(closeSnackbar(key));
                         // call(closeDialog.promise);
+                        closeSnackbarPromise(key);
+
                     }}>Close</button>
                 )
             }
         }));
-        // const takeVar = yield take({
-        //     closeDialog: call(closeDialog.promise)
-        // })
+
     }
     else {
         yield (put(closeSnackbar()));
