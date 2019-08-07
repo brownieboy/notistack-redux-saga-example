@@ -1,3 +1,4 @@
+import React from "react";
 import {
     fork, put, take
 } from "redux-saga/effects";
@@ -17,7 +18,13 @@ function* notify(action) {
                 variant: "success",
                 key: getNewKey(),
                 autoHideDuration: AUTOHIDE_PERIOD,
-                persist: true
+                persist: true,
+                action: key => (
+                    <button onClick={() => {
+                        console.log("button onClick");
+                        put(closeSnackbar(key));    
+                    }}>Close</button>
+                )
             }
         }));
     }

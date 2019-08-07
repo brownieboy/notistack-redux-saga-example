@@ -5,6 +5,7 @@ const defaultState = {
 };
 
 export default (state = defaultState, action) => {
+    console.log("notifyReducer, action: ", action);
     switch (action.type) {
         case ENQUEUE_SNACKBAR:
             return {

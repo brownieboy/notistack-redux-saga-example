@@ -17,11 +17,13 @@ export const enqueueSnackbar = notification => {
     };
 };
 
-export const closeSnackbar = key => ({
+export const closeSnackbar = key => {
+    console.log("closeSnackbar action, key: ", key);
+    return {
     type: CLOSE_SNACKBAR,
     dismissAll: !key, // dismiss all if no key has been defined
     key,
-});
+}};
 
 export const removeSnackbar = key => ({
     type: REMOVE_SNACKBAR,
