@@ -28,8 +28,8 @@ export default (state = defaultState, action) => {
         notifications: state.notifications.map(notification => {
           return action.dismissAll || notification.key === action.key
             ? { ...notification, dismissed: true }
-            : { ...notification }}
-        )
+            : { ...notification };
+        })
       };
 
     case REMOVE_SNACKBAR:

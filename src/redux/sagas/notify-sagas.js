@@ -27,7 +27,7 @@ function* notify(action) {
           // NotifierCloseButton.  We can't use regular Notistack syntax, e.g.:
           // <Button onClick={() => props.closeSnackbar(key)}>dismiss me</Button>
           // because we'd have to use put(closeSnackbar()), and put()
-          // does nothing.
+          // does not work inside of a callback.
           action: <NotifierCloseButton notifierKey={newKey} />
         }
       })

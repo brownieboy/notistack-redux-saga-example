@@ -1,8 +1,8 @@
 # Notistack Redux Saga Example  
 
-The example code here takes the Redux example from the [Notistack Repository](https://github.com/iamhosseindhv/notistack) and adapts it for use with Redux-Saga.
+The example code here takes the Redux example from the [Notistack Repository](https://github.com/iamhosseindhv/notistack) and adapts it for use with Redux-Saga.  The scenario is that we want snackbars displayed when we beging export a file and also when that export finishes.
 
-The idea is that the Saga can dispatch Notisstack action creators (`enqueueSnackbar()`, `closeSnackbar()` etc) in response to your existing Redux actions, rather than inserting new Notistack actions directly into your existing code.
+The idea is that the Saga can dispatch Notistack action creators (`enqueueSnackbar()`, `closeSnackbar()` etc) in response to your existing Redux actions, rather than inserting new Notistack actions directly into your existing code.
 
 ## Example buttons
 
@@ -14,4 +14,4 @@ The example contains four buttons.
 
 
 ## Generating keys
-The sample code's `enqueueSnackbar()` action creator code will generate a new key if one is not supplied as a parameter.  However, the `closeSnackbar()` will not work if you've used `enequeSnackbar` in this way.  You must generate the key externally and then pass it as a parameter as the sample code here does.  See the `getNewKey()` function in the Saga for how to do this.
+The sample code's `enqueueSnackbar()` action creator code will generate a new key if one is not supplied as a parameter.  However, the `closeSnackbar()` will not work if you've used `enequeSnackbar()` in this way.  You *must* generate the key externally and then pass it as a parameter as the sample code here does.  The `getNewKey()` function in the Saga is one example of how to do this, but you could use [shortid](https://www.npmjs.com/package/shortid) or any other package/function that generates unique IDs.
